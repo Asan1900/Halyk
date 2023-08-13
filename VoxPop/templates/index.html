@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoxPop - Public Opinion Platform</title>
+</head>
+<body>
+    <header>
+        <h1>VoxPop - Public Opinion Platform</h1>
+    </header>
+    <main>
+        <section id="comment-form">
+            <h2>Leave a Comment</h2>
+            <form method="post">
+                <textarea name="comment_text" placeholder="Enter your comment"></textarea>
+                <label for="comment_category">Select Category:</label>
+                <select name="comment_category">
+                    <option value="positive">Positive</option>
+                    <option value="negative">Negative</option>
+                </select>
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+        <section id="comment-list">
+            <h2>Public Comments</h2>
+            <ul>
+                {% for comment in comments %}
+                <li class="{{ comment['category'] }}">{{ comment['text'] }}</li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
